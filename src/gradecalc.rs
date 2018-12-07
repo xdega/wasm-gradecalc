@@ -77,14 +77,5 @@ fn grade_letter(grade: i32, max: i32) -> String {
 }
 
 fn main() {
-    let grades_json = "[45,47,30,40,50,44]".to_string();
-
-    println!("Sort DESC = {:?}", sort_desc(&grades_json).unwrap());
-    println!("Sort ASC = {:?}", sort_asc(&grades_json).unwrap());
-    println!("GPA (50) = {:.2}", grade_point_ave(&grades_json, 50));
-
-    println!("Grade Letter (49/50) = {:?}", grade_letter(49,50));
-    
-    println!("Grade Point (45/50) = {:?}", grade_point(45,50));
 
 }

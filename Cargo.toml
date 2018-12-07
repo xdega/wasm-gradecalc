@@ -1,0 +1,13 @@
+[package]
+name = "wasm-gradecalc"
+version = "0.1.0"
+authors = ["Liam Hockley <contact@liamhockley.me>"]
+description = "Simple Rust/WebAssembly Grade Calculator."
+license = "MIT/Apache-2.0"
+repository = "https://github.com/xdega/wasm-gradecalc"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = "0.2"

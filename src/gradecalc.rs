@@ -1,7 +1,11 @@
 extern crate serde;
 extern crate serde_json;
 extern crate serde_derive;
+extern crate wasm_bindgen;
 
+use wasm_bindgen::prelude::*;
+
+#[wasm_bindgen]
 fn sort_desc(grades_json: &String) -> Result<String, serde_json::Error> {
     let mut grades: Vec<u64> = serde_json::from_str(&grades_json).unwrap();
 
@@ -10,6 +14,7 @@ fn sort_desc(grades_json: &String) -> Result<String, serde_json::Error> {
     serde_json::to_string(&grades)
 }
 
+#[wasm_bindgen]
 fn sort_asc(grades_json: &String) -> Result<String, serde_json::Error> {
     let mut grades: Vec<u64> = serde_json::from_str(&grades_json).unwrap();
 
@@ -18,10 +23,12 @@ fn sort_asc(grades_json: &String) -> Result<String, serde_json::Error> {
     serde_json::to_string(&grades)
 }
 
+#[wasm_bindgen]
 fn percent(num: i32, max: i32) -> f32 {
     num as f32 / max as f32 * 100_f32
 }
 
+#[wasm_bindgen]
 fn grade_point(grade: i32, max: i32) -> f32 {
     let grade_percent = percent(grade, max);
 
@@ -43,6 +50,7 @@ fn grade_point(grade: i32, max: i32) -> f32 {
     }
 }
 
+#[wasm_bindgen]
 fn grade_point_ave(grades_json: &String, max: i32) -> f32 {
     let grades: Vec<i32> = serde_json::from_str(&grades_json).unwrap();
     
@@ -55,6 +63,7 @@ fn grade_point_ave(grades_json: &String, max: i32) -> f32 {
     result / grades.len() as f32
 }
 
+#[wasm_bindgen]
 fn grade_letter(grade: i32, max: i32) -> String {
     let grade_percent = percent(grade, max);
 
